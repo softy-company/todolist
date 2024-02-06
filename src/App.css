@@ -38,11 +38,15 @@
 }
 @media (max-width: 500px) {
 	.list {
-		width: 16rem;
+		width: 17rem;
+		/* font-size: 20px; */
 	}
 	button {
 		font-size: 57%;
 		padding-left: 0.1px;
 		padding-right: 0.1px;
+	}
+	.todoText h1 {
+		/* f: 30px; */
 	}
 }

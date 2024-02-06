@@ -34,31 +34,23 @@ const List = () => {
 			{todo.map(el => (
 				<div
 					style={{
-						background: doneItems[el.id] ? 'MediumSeaGreen' : 'black'
+						background: doneItems[el.id] ? 'MediumSeaGreen' : 'black',
+						wordBreak: 'break-word'
 					}}
 					key={el.id}
-					className={`list w-[1000px] flex items-start justify-start  h-15  ease-out rounded-md p-3 
-					 bg-gray-900 mb-5`}
+					className={`list w-[750px] flex items-start justify-start  h-15  ease-out rounded-md p-3 
+                        bg-gray-900 mb-5`}
 				>
-					<div className='flex items-center justify-center flex-col gap-2'>
-						<button
-							style={{
-								transition: '.3s'
-							}}
-							onClick={() => handleChange(el.id)}
-							class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-2.5 rounded-full'
-						>
-							{doneItems[el.id] ? <IoCheckmarkDoneSharp /> : <MdDone />}
-						</button>
-						<button
-							type='button'
-							onClick={() => DeleteTask(el.id)}
-							className='  focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 '
-						>
-							<MdDelete />
-						</button>
-					</div>
-					<div className='todoText px-10 pr-32 '>
+					<button
+						style={{
+							transition: '.3s'
+						}}
+						onClick={() => handleChange(el.id)}
+						className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-2.5 rounded-full'
+					>
+						{doneItems[el.id] ? <IoCheckmarkDoneSharp /> : <MdDone />}
+					</button>
+					<div className='todoText px-3'>
 						<h1
 							style={{
 								color: 'white'
@@ -67,6 +59,15 @@ const List = () => {
 							{el.title}
 						</h1>
 					</div>
+					<div style={{ flex: '1' }}></div>{' '}
+					{/* Этот блок занимает всё доступное пространство */}
+					<button
+						type='button'
+						onClick={() => DeleteTask(el.id)}
+						className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'
+					>
+						<MdDelete />
+					</button>
 				</div>
 			))}
 		</div>
